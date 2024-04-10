@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Train Aléatoire</title>
+    </head>
+    <body>
+        <h1>Train Aléatoire</h1>
+        <div>
+            <h2>Destination : {{ random_train.destination }}</h2>
+            <p>Heure de départ : {{ random_train.depart }}</p>
+            <img src="../static/train/img/logo/{{type}}.png" alt="Logo du train">
+            <img src="../static/train/img/plan/{{plan}}.png" alt="Plan du train">
+        </div>
+    </body>
+</html>

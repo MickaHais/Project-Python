@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page d'accueil</title>
+        <link rel="stylesheet" href="../static/train/css/style_accueil.css">
+    </head>
+    <body>
+        <header>
+            <h1>Page d'accueil</h1>
+            <nav>
+                <a href="{% url 'detail' ele.trainID %}">Voir détails du train</a>
+                <a href="{% url 'random' %}">Train aléatoire</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Liste des trains</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Train</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Départ</th>
+                        <th scope="col">Arrivée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ele in Train %}
+                    <tr>
+                        <th><img src="../../static/train_track/img/picto_ligne/{{ele.name}}.svg" alt=""></th>
+                        <td>{{ele.destination}}</td>
+                        <td>{{ele.date_start}}</td>
+                        <td>{{ele.date_end}}</td>
+                        <a href="{% url 'detail' ele.id %}">Détails</a>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>
