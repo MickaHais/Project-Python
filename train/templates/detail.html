@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détails du train</title>
-    <link rel="stylesheet" href="../static/train/css/style_detail.css">
-</head>
-<body>
-    <h1>Détails du Train</h1>
-    {% comment %} <p>ID du train : {{ train.id }}</p> {% endcomment %}
-    <img id="logo_rer" src="../static/train/img/logo/{{type}}.png" alt="{{type}}">
-    <h2> {{ destination }}</h2>
-    <h3>{{ depart }}</h3>
-    <img id="plan_rer" src="../static/train/img/plan/{{plan}}.png" alt="{{plan}}">
-    <a href="{% url 'accueil' %}">Retour à la page d'accueil</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Détails du train</title>
+        <link rel="stylesheet" href="../static/train/css/style_detail.css">
+    </head>
+    <header>
+        <h1>Détails du Train</h1>
+        <nav>
+            <a href="{% url 'accueil' %}">Retour à la page d'accueil</a>
+            <a href="{% url 'random' %}">Train aléatoire</a>
+        </nav>
+    </header>
+    <div class="container">
+        <img id="logo_rer" src="../static/train/img/logo/{{type}}.png" alt="{{type}}">
+        <h2> {{ destination }}</h2>
+        <h3>{{ depart }}</h3>
+        <img id="plan_rer" src="../static/train/img/plan/{{plan}}.png" alt="{{plan}}">
+    </div>
 </html>

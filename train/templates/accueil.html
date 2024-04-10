@@ -9,34 +9,27 @@
     <body>
         <header>
             <h1>Page d'accueil</h1>
+            <form action="{% url 'search' %}" method="GET">
+                <input type="text" name="train_id" placeholder="Rechercher par ID de train">
+                <button type="submit">Rechercher</button>
+            </form>
             <nav>
-                <a href="{% url 'detail' ele.trainID %}">Voir détails du train</a>
+                <a href="{% url 'detail' %}">Voir détails du train</a>
                 <a href="{% url 'random' %}">Train aléatoire</a>
             </nav>
         </header>
         <main>
-            <h2>Liste des trains</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Train</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Départ</th>
-                        <th scope="col">Arrivée</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for ele in Train %}
-                    <tr>
-                        <th><img src="../../static/train_track/img/picto_ligne/{{ele.name}}.svg" alt=""></th>
-                        <td>{{ele.destination}}</td>
-                        <td>{{ele.date_start}}</td>
-                        <td>{{ele.date_end}}</td>
-                        <a href="{% url 'detail' ele.id %}">Détails</a>
-                    </tr>
+            <div class="container">
+                <h2>Liste des trains</h2>
+                <div class="train-cards">
+                    {% for train in trains %}
+                        <div class="train-card">
+                            <h3>{{ train.destination }}</h3>
+                            <p>Heure de départ : {{ train.depart }}</p>
+                        </div>
                     {% endfor %}
-                </tbody>
-            </table>
+                </div>
+            </div>
         </main>
     </body>
 </html>
